@@ -1,6 +1,9 @@
 //Lesson 1: Adding date function to headeer of DOM
-const userName = prompt("Please enter your name:");
-document.querySelector('#userName').textContent =`Hello, ${userName}!`;
+//const userName = prompt("Please enter your name:");
+//document.querySelector('#userName').textContent =`Hello, ${userName}!`;
+//Wanted to personalise the fitness tracker
+
+
 const welcomeMessage = () => {
     const today = new Date().toDateString();
     document.getElementById('welcomeMessage').textContent = `🤸🏾‍♀️ Welcome to Your Fitness Tracker 🥗 Today is ${today}`;
