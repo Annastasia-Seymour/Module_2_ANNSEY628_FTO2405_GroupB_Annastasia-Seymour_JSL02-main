@@ -1,4 +1,6 @@
 //Lesson 1: Adding date function to headeer of DOM
+const userName = prompt("Please enter your name:");
+document.querySelector('#userName').textContent =`Hello, ${userName}!`;
 const welcomeMessage = () => {
     const today = new Date().toDateString();
     document.getElementById('welcomeMessage').textContent = `🤸🏾‍♀️ Welcome to Your Fitness Tracker 🥗 Today is ${today}`;
@@ -72,7 +74,7 @@ const addNewGoal = () => {
 // Add event listener to the goal submit button
 document.querySelector('#submitGoal').addEventListener('click', addNewGoal);
 
-///
+///Lesson 4: Event Handling
 let waterIntake = 0;
 const updateWaterIntake = (change) => {
    
@@ -95,6 +97,8 @@ const updateProgressCharts = () => {
 
 updateProgressCharts();
 
+//Lesson 5: CSS Manipulation via JavaScript , Forms and User input
+//Toggles the theme button
 const toggleTheme = () => {
     document.body.classList.toggle('dark-theme');
 };
