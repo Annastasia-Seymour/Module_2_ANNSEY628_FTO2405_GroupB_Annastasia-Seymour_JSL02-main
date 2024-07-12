@@ -1,10 +1,12 @@
+//Lesson 1: Adding date function to headeer of DOM
 const welcomeMessage = () => {
     const today = new Date().toDateString();
-    const welcomeMessage = document.getElementById('welcome-message').textContent = `🤸🏾‍♀️ Welcome to Your Fitness Tracker 🥗 Today is ${today}`;
-    const welcomeDiv = document.getElementById('welcome-message');
+    document.getElementById('welcomeMessage').textContent = `🤸🏾‍♀️ Welcome to Your Fitness Tracker 🥗 Today is ${today}`;
+    
 };
 welcomeMessage();
 
+//Lesson 2: Selecting and Manipulating Elements
 const displayWorkoutRoutine = () => {
     const workoutInput = document.querySelector('#workoutInput').value;
     const workoutList = document.querySelector('#workoutList');
@@ -39,8 +41,27 @@ const addNewGoal = () => {
     
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
-    goalList.appendChild(newGoal);
-};
+    //how do i check for duplicates , use boolean either there is pr there isnt
+    let isDuplicate = false;
+    const existingGoals = document.querySelectorAll('#goalList li');// i had a small typo goalList was goalList
+    existingGoals.forEach( goal=>{
+        if(goal.textContent===goalInput){
+            isDuplicate = true;
+        }
+    });
+    if (isDuplicate) {
+        alert("Do not duplicate goals!");
+        
+    } else {
+        goalList.appendChild(newGoal); // adds the goal
+
+        newGoal.addEventListener('click', () => {
+            goalList.removeChild(newGoal); // removes the goal
+        });
+
+}; 
+
+}
 
 // Add event listener to the goal submit button
 document.querySelector('#submitGoal').addEventListener('click', addNewGoal);
@@ -74,3 +95,8 @@ const submitMealPlan = (event) => {
 };
 
 document.querySelector('#mealPlanForm').addEventListener('submit', submitMealPlan);
+
+
+//clear all fields once meal plan submitted
+//debug error for glasses intake
+//figure out if statement mahbob

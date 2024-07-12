@@ -22,6 +22,7 @@ body, html {
     padding: 40px;
     color: #ffffff;
     text-align: center;
+    font-weight: bold;
 }
 
 button {
@@ -97,4 +98,7 @@ ul {
     font-size: 1.2em;
     font-weight: 600;
     
+}
+#goalList li{
+    cursor:pointer;
 }
