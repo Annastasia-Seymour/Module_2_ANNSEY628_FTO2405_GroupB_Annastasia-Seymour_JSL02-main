@@ -17,6 +17,7 @@ const displayWorkoutRoutine = () => {
 
 document.querySelector('#submitWorkout').addEventListener('click', displayWorkoutRoutine);
 
+
 // ⚠️⚠️⚠️ Lesson 3: Creating and Removing Elements ⚠️⚠️⚠️
 // Function to add new fitness goals and remove completed ones
 // NOW LET'S DEBUG TO PREVENT DUPLICATE GOALS FROM BEING SUBMITTED 🚀
@@ -39,18 +40,23 @@ const addNewGoal = () => {
     // The event listener that removes goals when clicked is not related to this issue.
     // Focus on preventing duplicates for now.
     
+      if (goalInput==="") {
+        alert("Fitness goal field cannot be empty")
+        return;
+    }// prevent empty lists ,
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
+    // these hints really helped
     //how do i check for duplicates , use boolean either there is pr there isnt
     let isDuplicate = false;
     const existingGoals = document.querySelectorAll('#goalList li');// i had a small typo goalList was goalList
     existingGoals.forEach( goal=>{
         if(goal.textContent===goalInput){
             isDuplicate = true;
-        }
+        }//just checks for duplicates , doesnt check for similarities
     });
     if (isDuplicate) {
-        alert("Do not duplicate goals!");
+        alert("Do not duplicate goals!");// alerts the user of using putting the same goal down
         
     } else {
         goalList.appendChild(newGoal); // adds the goal
@@ -69,12 +75,18 @@ document.querySelector('#submitGoal').addEventListener('click', addNewGoal);
 ///
 let waterIntake = 0;
 const updateWaterIntake = (change) => {
-    waterIntake += change;
-    document.querySelector('#waterIntakeDisplay').textContent = `${waterIntake} glasses 💦`;
+   
+if (waterIntake + change < 0) {
+    alert("Intake cannot be negative");
+    return;
+}// if statement to prevent people drink negative water
+waterIntake += change;
+document.querySelector('#waterIntakeDisplay').textContent = `${waterIntake} glasses 💦`;
 };
-
 document.querySelector('#increaseWater').addEventListener('click', () => updateWaterIntake(1));
 document.querySelector('#decreaseWater').addEventListener('click', () => updateWaterIntake(-1));
+
+
 
 const updateProgressCharts = () => {
     document.querySelector('#workoutProgress').textContent = "Updated workout progress...";
