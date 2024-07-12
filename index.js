@@ -61,7 +61,7 @@ const addNewGoal = () => {
         }//just checks for duplicates , doesnt check for similarities
     });
     if (isDuplicate) {
-        alert("Do not duplicate goals!");// alerts the user of using putting the same goal down
+        alert("Goal already exists!");// alerts the user of using putting the same goal down
         
     } else {
         goalList.appendChild(newGoal); // adds the goal
